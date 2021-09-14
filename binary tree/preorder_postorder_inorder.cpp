@@ -44,46 +44,37 @@ binarytreenode<int>* take_input_level_wise(){
     }
     return root;
 }
-void print_level_wise(binarytreenode<int>* root){
-    //cout<<root->data<<":";
-    queue<binarytreenode<int>*> pending;
-    pending.push(root);
-    while(pending.size()!=0){
-        binarytreenode<int>* front=pending.front();
-        pending.pop();
-        cout<<front->data<<":";
-        if(front->left){
-            cout<<"L"<<front->left->data;
-            pending.push(front->left);
-        }
-        if(front->right){
-            cout<<"R"<<front->right->data;
-            pending.push(front->right);
-        }
-        cout<<endl;
-    }
-}
+
 
  void preorder(binarytreenode<int>* root){
+   // base case: if root =NULL return
     if(root==NULL){
         return;
     }
+    //first print root's data and then first make a recursive call on root's
+    // and then on root 's right
     cout<<root->data<<" ";
     preorder(root->left);
     preorder(root->right);
 }
 void postorder(binarytreenode<int>* root){
+  // base case: if root =NULL return
     if(root==NULL){
         return;
     }
+    // first print the value at root's left and then  the value at root's right
+    // and at last root data
     postorder(root->left);
     postorder (root->right);
     cout<<root->data<<" ";
 }
  void inorder(binarytreenode<int>* root){
+   // base case: if root =NULL return
     if(root==NULL){
         return;
     }
+    // first print the value at root's left and then root data
+    //and at last the value at root's right data
     inorder(root->left);
     cout<<root->data<<" ";
     inorder (root->right);

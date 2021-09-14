@@ -45,27 +45,6 @@ binarytreenode<int>* take_input_level_wise(){
     }
     return root;
 }
-
-void print_level_wise(binarytreenode<int>* root){
-    //cout<<root->data<<":";
-    queue<binarytreenode<int>*> pending;
-    pending.push(root);
-    while(pending.size()!=0){
-        binarytreenode<int>* front=pending.front();
-        pending.pop();
-        cout<<front->data<<":";
-        if(front->left){
-            cout<<"L"<<front->left->data;
-            pending.push(front->left);
-        }
-        if(front->right){
-            cout<<"R"<<front->right->data;
-            pending.push(front->right);
-        }
-        cout<<endl;
-    }
-}
-
 pair<int,int> maxmin(binarytreenode<int>* root){
     if(root==NULL){
         pair<int,int> p;
@@ -86,11 +65,11 @@ pair<int,int> maxmin(binarytreenode<int>* root){
 }
 
 int main() {
+
     binarytreenode<int>* root=take_input_level_wise();
-    print_level_wise(root);
-   pair<int,int> p= maxmin(root);
-   cout<<"maximum= "<<p.first<<endl;
-   cout<<"minimun= "<<p.second<<endl;
+    pair<int,int> p= maxmin(root);
+    cout<<"maximum= "<<p.first<<endl;
+    cout<<"minimun= "<<p.second<<endl;
 
     return 0;
 }

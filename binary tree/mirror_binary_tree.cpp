@@ -46,7 +46,6 @@ binarytreenode<int>* take_input_level_wise(){
 }
 
 void print_level_wise(binarytreenode<int>* root){
-    //cout<<root->data<<":";
     queue<binarytreenode<int>*> pending;
     pending.push(root);
     while(pending.size()!=0){
@@ -66,9 +65,12 @@ void print_level_wise(binarytreenode<int>* root){
 }
 
 void mirrortree(binarytreenode<int>*&root){
+  //base case:if root is NULL return
     if(root==NULL){
         return ;
     }
+    // store the value of root's left and right in some other variable
+    // and now make root->left point to variable which has root's right value stored
     binarytreenode<int>* hleft=root->left;
     binarytreenode<int>* hright=root->right;
     root->right=hleft;

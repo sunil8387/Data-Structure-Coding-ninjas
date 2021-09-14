@@ -45,27 +45,11 @@ binarytreenode<int>* take_input_level_wise(){
     return root;
 }
 
-void print_level_wise(binarytreenode<int>* root){
-    //cout<<root->data<<":";
-    queue<binarytreenode<int>*> pending;
-    pending.push(root);
-    while(pending.size()!=0){
-        binarytreenode<int>* front=pending.front();
-        pending.pop();
-        cout<<front->data<<":";
-        if(front->left){
-            cout<<"L"<<front->left->data;
-            pending.push(front->left);
-        }
-        if(front->right){
-            cout<<"R"<<front->right->data;
-            pending.push(front->right);
-        }
-        cout<<endl;
-    }
-}
-
 bool is_present (binarytreenode<int>* root,int x){
+  //check if x is present at root->data
+  // if yes then return true
+  // otherwise make a recursive call on root's left and right children
+  // if x is not found after making recusive call then return false
     if(root==NULL){
         return NULL;
     }
@@ -83,7 +67,6 @@ bool is_present (binarytreenode<int>* root,int x){
 
 int main() {
     binarytreenode<int>* root=take_input_level_wise();
-    print_level_wise(root);
     int x;
     cin>>x;
     if(is_present(root,x)){

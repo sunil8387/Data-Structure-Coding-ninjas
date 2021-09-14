@@ -19,7 +19,7 @@ class binarytreenode{
 };
 
 void print_level_wise(binarytreenode<int>* root){
-    //cout<<root->data<<":";
+
     queue<binarytreenode<int>*> pending;
     pending.push(root);
     while(pending.size()!=0){
@@ -39,7 +39,7 @@ void print_level_wise(binarytreenode<int>* root){
 }
 
 binarytreenode<int>* builttreepost(int *in,int *post,int ins,int ine,int posts,int poste){
-    if(ins>ine){
+    if(ins>ine){    // base case
         return NULL;
     }
     int rootdata=post[poste];

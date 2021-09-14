@@ -19,7 +19,6 @@ class binarytreenode{
 };
 
 void print_level_wise(binarytreenode<int>* root){
-    //cout<<root->data<<":";
     queue<binarytreenode<int>*> pending;
     pending.push(root);
     while(pending.size()!=0){
@@ -39,7 +38,7 @@ void print_level_wise(binarytreenode<int>* root){
 }
 
 binarytreenode<int>* builttreepre(int *in,int *pre,int ins,int ine,int pres,int pree){
-    if(ins>ine){
+    if(ins>ine){   //base case
         return NULL;
     }
     int rootdata=pre[pres];

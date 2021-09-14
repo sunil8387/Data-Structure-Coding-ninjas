@@ -45,64 +45,19 @@ binarytreenode<int>* take_input_level_wise(){
     return root;
 }
 
-binarytreenode<int>* take_input(){
-    int rootdata;
-    cin>>rootdata;
-    if(rootdata==-1){
-        return NULL;
-    }
-    binarytreenode<int>* root= new binarytreenode<int>(rootdata);
-    root->left=take_input();
-    root->right=take_input();
-    return root;
-}
-
-void print(binarytreenode<int>*root){
-    if(root==NULL){
-        return ;
-    }
-    cout<<root->data<<":";
-    if(root->left){
-        cout<<"L"<<root->left->data;
-    }
-    if(root->right){
-        cout<<"R"<<root->right->data;
-    }
-    cout<<endl;
-    print(root->left);
-    print(root->right);
-}
-void print_level_wise(binarytreenode<int>* root){
-    //cout<<root->data<<":";
-    queue<binarytreenode<int>*> pending;
-    pending.push(root);
-    while(pending.size()!=0){
-        binarytreenode<int>* front=pending.front();
-        pending.pop();
-        cout<<front->data<<":";
-        if(front->left){
-            cout<<"L"<<front->left->data;
-            pending.push(front->left);
-        }
-        if(front->right){
-            cout<<"R"<<front->right->data;
-            pending.push(front->right);
-        }
-        cout<<endl;
-    }
-}
-
-int height1(binarytreenode<int>* root){
-  if(root==NULL){
+// For height we need to calculate number of nodes in the left and right
+// of binary tree and will add 1 to the maximun number of nodes
+// from left and right
+int height(binarytreenode<int>* root){
+  if(root==NULL){ //base case
     return 0;
   }
-  return 1+max(height1(root->left),height1(root->right));
+  return 1+max(height(root->left),height(root->right));
 }
 
 int main() {
     binarytreenode<int>* root=take_input_level_wise();
-     print_level_wise(root);
-    cout<<height1(root)<<endl;
+    cout<<height(root)<<endl;
 
     return 0;
 }
