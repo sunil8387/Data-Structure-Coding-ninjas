@@ -18,8 +18,8 @@ public:
     delete next;
   }
 };
+template <typename V>
 
-template<typename V>
 class ourmap{
 public:
   mapnode<V>** bucket;

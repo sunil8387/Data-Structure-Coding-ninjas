@@ -1,6 +1,7 @@
-#include<iostream>
-#include<unordered_map>
-using namespace std;
+//You have been given two integer arrays/list(ARR1 and ARR2) of size N and M, respectively. You need to print their intersection; An intersection for this problem can be defined when both the arrays/lists contain a particular value or to put it in other words, when there is a common value that exists in both the arrays/lists.
+//Note :Input arrays/lists can contain duplicate elements.
+
+
 
 void intersection(int*a,int n,int*b,int m){
   unordered_map<int,int> m1;
@@ -17,14 +18,4 @@ void intersection(int*a,int n,int*b,int m){
     }
   }
   return;
-}
-
-int main(){
-
-  int a[]={1,2,3,4,43,7,3};
-  int b[]={34,45,1,3,7,3};
-  intersection(a,7,b,6);
-
-
-  return 0;
 }
